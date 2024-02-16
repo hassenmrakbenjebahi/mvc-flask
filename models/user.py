@@ -6,10 +6,10 @@ from flask import Flask
 #mongo = PyMongo(app)
 
 class User:
-    def __init__(self, name, age, address):
+    def __init__(self, name, email, password):
         self.name = name
-        self.age = age
-        self.address = address
+        self.email = email
+        self.password = password
 """
     def save_to_mongo(self):
         mongo.db.users.insert_one(
