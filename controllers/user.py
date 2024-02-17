@@ -10,5 +10,3 @@ def add_user():
     save_user_to_mongo(name, email, password)
     return jsonify({"message": "User added successfully"}), 201
 
-def yalla():
-    return jsonify({"message": "architecture jawha behi "}), 201
