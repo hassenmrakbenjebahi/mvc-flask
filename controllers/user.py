@@ -1,8 +1,4 @@
-# pseudo code
-import sys
-from flask import render_template, redirect, url_for, request, abort, jsonify
-from models.user import User
-from flask_pymongo import PyMongo
+from flask import  request, jsonify
 from services.userService import save_user_to_mongo
 
 
@@ -13,5 +9,6 @@ def add_user():
     password = data.get('password')
     save_user_to_mongo(name, email, password)
     return jsonify({"message": "User added successfully"}), 201
-        
 
+def yalla():
+    return jsonify({"message": "architecture jawha behi "}), 201

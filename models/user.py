@@ -1,22 +1,24 @@
-from flask import Flask
-#from flask_pymongo import PyMongo
 
-#app = Flask(__name__)
-#app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
-#mongo = PyMongo(app)
+from flask_pymongo import PyMongo
 
+mongo = PyMongo()
 class User:
     def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
-"""
-    def save_to_mongo(self):
-        mongo.db.users.insert_one(
-            {"name": self.name, "age": self.age, "address": self.address}
-        )
 
-# Utilisation de l'exemple ci-dessus
-user = User("Navindu", 22, "Colombo")
-user.save_to_mongo()
-"""
+
+@staticmethod
+def create_user(email, password, name):
+        """
+        Creates a new user document in the MongoDB database.
+        """
+        user_data = {
+            "email": email,
+            "password": password,
+            "name": name,
+        }
+        result = mongo.db.users.insert_one(user_data)
+        user_data['_id'] = str(result.inserted_id)  # Convert ObjectId to string
+        return user_data

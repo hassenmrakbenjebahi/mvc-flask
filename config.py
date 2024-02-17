@@ -1,3 +1,3 @@
 class Config:
-
-    MONGO_URI = "mongodb://localhost:27017/AiRecruit"
+    SECRET_KEY = 'your_secret_key'
+    MONGO_URI = "mongodb://127.0.0.1:27017/airec"
